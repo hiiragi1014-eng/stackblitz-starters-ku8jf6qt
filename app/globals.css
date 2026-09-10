@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+/* スライドショーの動き（Ken Burnsエフェクト） */
+@keyframes zoomIn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+@keyframes zoomOut {
+  0% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes panRightLeft {
+  0% { transform: scale(1.1) translateX(3%); }
+  100% { transform: scale(1.1) translateX(-3%); }
+}
+
+@keyframes panLeftRight {
+  0% { transform: scale(1.1) translateX(-3%); }
+  100% { transform: scale(1.1) translateX(3%); }
+}
+
+@keyframes panTopBottom {
+  0% { transform: scale(1.1) translateY(-3%); }
+  100% { transform: scale(1.1) translateY(3%); }
+}
+
+@keyframes panBottomTop {
+  0% { transform: scale(1.1) translateY(3%); }
+  100% { transform: scale(1.1) translateY(-3%); }
+}
+
+.animate-zoom-in { animation: zoomIn 7s ease-out forwards; }
+.animate-zoom-out { animation: zoomOut 7s ease-out forwards; }
+.animate-pan-right-left { animation: panRightLeft 7s ease-out forwards; }
+.animate-pan-left-right { animation: panLeftRight 7s ease-out forwards; }
+.animate-pan-top-bottom { animation: panTopBottom 7s ease-out forwards; }
+.animate-pan-bottom-top { animation: panBottomTop 7s ease-out forwards; }
